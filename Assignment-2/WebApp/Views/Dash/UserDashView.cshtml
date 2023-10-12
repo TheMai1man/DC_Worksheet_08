@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<Account> accounts = (List<Account>)ViewData["Accounts"];
+}
+
+<h1>Your Dashboard</h1>
+
+
+@{
+    string name = (string)ViewData["Name"];
+    string email = (string)ViewData["Email"];
+    string phone = (string)ViewData["Phone"];
+}
+<h4>Profile Information</h4>
+<p>Name: @name<br>Email: @email<br>Phone: @phone</p>
+
+<button type="button" id="" onclick="toggleEditProfile()">Edit Profile</button>
+<div id="EditProfile" style="display: none;">
+    <h5>Change details</h5>
+    <form>
+        <label for="e">Email:</label>
+        <input type="email" id="e" default=@name placeholder="example@domain">
+        <label for="ph">Phone:</label>
+        <input type="tel" id="ph" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="1234-567-890" default=@phone>
+        <button type="button" onclick="updateDetails()">Update</button>
+    </form>
+
+    <h5>Change Password</h5>
+    <form>
+        <input type="password" id="NewPwd" name="NewPwd" placeholder="New Password" />
+        <input type="password" id="RNewPwd" name="RNewPwd" placeholder="Confirm New Password" />
+        <button type="button" onclick="pwdReset()">Submit</button>
+    </form>
+    <p id="pwdError"><strong>Error: passwords do not match!</strong></p>
+</div>
+
+
+<h4>Accounts</h4>
+
+
+<h4>Transactions</h4>
+
+
+<h4>Transfers</h4>

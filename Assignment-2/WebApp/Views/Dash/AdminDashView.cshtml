@@ -1,0 +1,117 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string name = (string)ViewData["Name"];
+    string email = (string)ViewData["Email"];
+    string phone = (string)ViewData["Phone"];
+}
+<div id="dashboard">
+    <h1>Admin Dashboard</h1>
+
+
+    <h3>Profile Management</h4>
+    <p>Name: @name<br>Email: @email<br>Phone: @phone</p>
+
+
+    <h4>Change details</h4>
+    <form>
+        <div>
+            <label for="e">Email:</label>
+            <input type="email" id="e" default=@name placeholder="example@domain" />
+        </div>
+        <div>
+            <label for="ph">Phone:</label>
+            <input type="tel" id="ph" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="1234-567-890" default=@phone />
+        </div>
+        <button type="button" onclick="updateMyDetails()">Save Changes</button>
+    </form>
+    <p id="detailError" class="errorMsg">Error: email and phone fields must be valid!</p>
+
+    <h4>Change Password</h4>
+    <form>
+        <div>
+            <label for="NewPwd">New Password</label>
+            <input type="password" id="NewPwd" name="NewPwd" placeholder="password" />
+        </div>
+        <div>
+            <label for="RNewPwd">Confirm New Password</label>
+            <input type="password" id="RNewPwd" name="RNewPwd" placeholder="password" />
+        </div>
+        <button type="button" onclick="resetMyPwd()">Submit</button>
+    </form>
+    <p id="pwdError" class="errorMsg">Error: passwords do not match!</p>
+
+
+    <h3>User Managment</h3>
+
+    <h4>Create New User</h4>
+    <form>
+        <div>
+            <label for="createUsername">Username</label>
+            <input type="text" id="createUsername" placeholder="username" />
+        </div>
+        <div>
+            <label for="createPassword">Password</label>
+            <input type="password" id="createPassword" placeholder="password" />
+        </div>
+        <div>
+            <label for="createEmail">Email</label>
+            <input type="text" id="createEmail" placeholder="example@domain" />
+        </div>
+        <div>
+            <label for="createPhone">Phone</label>
+            <input type="tel" id="createPhone" placeholder="1234-567-890" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" />
+        </div>
+        <div>
+            <label for="createAddress">Address</label>
+            <input type="text" id="createAddress" placeholder="1 Example Street, City/Town State 0000" />
+        </div>
+        <button type="button" onclick="createUser()">Create</button>
+    </form>
+
+    <h4>Edit Users</h4>
+
+    <h5>Search User</h5>
+    <form>
+        <input type="text" id="editSearch" placeholder="username"/>
+        <button type="button" onclick="searchUser()">Search</button>
+    </form>
+    <p id="searchUserError" class="errorMsg">Error: could not find user!</p>
+
+    <h5>Change details</h5>
+    <form>
+        <div>
+            <label for="editUsername">Username</label>
+            <input type="text" id="editUsername" placeholder="username" />
+        </div>
+        <div>
+            <label for="editEmail">Email</label>
+            <input type="text" id="editEmail" placeholder="example@domain" />
+        </div>
+        <div>
+            <label for="editPhone">Phone</label>
+            <input type="tel" id="editPhone" placeholder="1234-567-890" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" />
+        </div>
+        <div>
+            <label for="editAddress">Address</label>
+            <input type="text" id="editAddress" placeholder="1 Example Street, City/Town State 0000" />
+        </div>
+        <button type="button" onclick="editUser()">Save Changes</button>
+        <button type="button" onclick="deactivateUser()">Deactivate</button>
+    </form>
+    <p id ="changeUserError" class="errorMsg">Error: some/all fields invalid!</p>
+
+    <h5>Password Reset</h5>
+    <form>
+        <input type="text" id="resetPwd" placeholder="new password" />
+        <button type="button" onclick="resetUserPwd()">Reset</button>
+    </form>
+    <p id="resetUserPwdError" class="errorMsg">Error: new password invalid!</p>
+</div>
+
+
+<h3>Transaction Management</h3>
+
+
+<h3>Security and Access Control</h3>

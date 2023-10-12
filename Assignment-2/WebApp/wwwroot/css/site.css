@@ -1,0 +1,98 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+div#main {
+    margin-left: 5%,
+}
+
+div#navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkslategrey;
+}
+
+div#navigation li {
+    float: left;
+}
+
+div#navigation li button {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-size: large;
+}
+
+div#navigation li button:hover {
+    background-color: #111111;
+    color: white;
+}
+
+div#LoginForm {
+    width: 300px;
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#LoginForm input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+p#status {
+    width: 300px;
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#EditProfile form {
+    width: 250px;
+}
+
+.errorMsg {
+    color: red;
+    display: none;
+}
+
+div#dashboard form {
+    width: 300px;
+}
+
+div#dashboard label {
+    display: inline-block;
+    width: 70px;
+}
+
+div#dashboard input {
+    padding: 5px 10px;
+}
+
+div#dashboard div {
+    padding-bottom: 2px;
+}
