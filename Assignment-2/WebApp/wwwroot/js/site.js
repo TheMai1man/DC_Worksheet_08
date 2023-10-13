@@ -96,12 +96,12 @@ function updateMyDetails()
     if (newEmail !== null && newPhone !== null && newEmail !== "" && newPhone !== "") {
         document.getElementById('detailError').style.display = "none";
         var data = {
-            UserID = 0;
-            Name = "";
-            Email = newEmail;
-            Address = "";
-            Phone = newPhone;
-            Pwd = "";
+            UserID: 0,
+            Name: "a",
+            Email: newEmail,
+            Address: "a",
+            Phone: newPhone,
+            Pwd: "a",
         }
 
         const apiUrl = '/api/dash/updateMyDetails';

@@ -50,10 +50,12 @@ namespace WebApp.Controllers
 
             if (profile != null)
             {
-                profile.UserID = (uint)ViewData["UserID"];
-                profile.Name = (string)ViewData["Name"];
-                profile.Address = (string)ViewData["Address"];
-                profile.Pwd = (string)ViewData["Pwd"];
+                profile.UserID = Convert.ToUInt32(Request.Cookies["UserID"]);
+                profile.Name = Request.Cookies["SessionID"];
+                profile.Address = Request.Cookies["Address"];
+                profile.Pwd = Request.Cookies["Pwd"];
+
+                Console.WriteLine("Profile stuff: \n" + profile.UserID + "\n" + profile.Name + "\n" + profile.Email + "\n" + profile.Address + "\n" + profile.Pwd + "\n" + profile.Phone);
 
                 RestClient restClient = new RestClient("http://localhost:5134");
                 RestRequest restRequest = new RestRequest("/api/Profiles/{id}", Method.Put);

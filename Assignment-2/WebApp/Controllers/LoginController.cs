@@ -14,13 +14,7 @@ namespace WebApp.Controllers
         {
             if(Request.Cookies.ContainsKey("SessionID"))
             {
-                var cookieValue = Request.Cookies["SessionID"];
-
-                // TODO: check sessionID matches a user name
-                if(cookieValue == "admin" || cookieValue == "user")
-                {
-                    return PartialView("LoginAuthenticatedView");
-                }
+                return PartialView("LoginAuthenticatedView");
             }
 
             return PartialView("LoginDefaultView");
@@ -32,13 +26,7 @@ namespace WebApp.Controllers
         {
             if(Request.Cookies.ContainsKey("SessionID"))
             {
-                var cookieValue = Request.Cookies["SessionID"];
-
-                //TODO: check session ID matches a user name from DB
-                if (cookieValue == "admin" || cookieValue == "user")
-                {
-                    return PartialView("LoginAuthenticatedView");
-                }
+                return PartialView("LoginAuthenticatedView");
             }
 
             return PartialView("LoginErrorView");
@@ -55,19 +43,9 @@ namespace WebApp.Controllers
         [HttpPost("auth")]
         public IActionResult Authenticate([FromBody] User user)
         {
-            // Return the partial view as HTML
             var response = new { login = false };
 
-            // TODO: implement admin users into the system
-            // validates admin
-            if (user != null && user.Username.Equals("admin") && user.Password.Equals("adminPassword"))
-            {
-                Response.Cookies.Append("SessionID", "admin");
-                response = new { login = true };
-            }
-
-            // validates regular users
-            if(user != null)
+            if (user != null)
             {
                 RestClient restClient = new RestClient("http://localhost:5134");
                 RestRequest restRequest = new RestRequest("/api/Profiles/Name/{name}", Method.Get);
@@ -78,13 +56,20 @@ namespace WebApp.Controllers
 
                 if (restResponse.IsSuccessful && profile.Pwd.Equals(user.Password))
                 {
-                    Response.Cookies.Append("SessionID", "user");
+                    Response.Cookies.Append("SessionID", profile.Name);
                     response = new { login = true };
+
+                    Response.Cookies.Append("UserID", profile.UserID.ToString());
+                    Response.Cookies.Append("Email", profile.Email);
+                    Response.Cookies.Append("Address", profile.Address);
+                    Response.Cookies.Append("Phone", profile.Phone.ToString());
+                    Response.Cookies.Append("Pwd", profile.Pwd);
                 }
             }
 
             return Json(response);
         }
+
 
 
     }

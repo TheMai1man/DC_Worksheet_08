@@ -4,7 +4,7 @@
 @{
     string name = (string)ViewData["Name"];
     string email = (string)ViewData["Email"];
-    string phone = (string)ViewData["Phone"];
+    uint phone = (uint)ViewData["Phone"];
 }
 <div id="dashboard">
     <h1>Admin Dashboard</h1>
@@ -18,11 +18,11 @@
     <form>
         <div>
             <label for="e">Email:</label>
-            <input type="email" id="e" default=@name placeholder="example@domain" />
+            <input type="email" id="e" placeholder="example@domain" />
         </div>
         <div>
             <label for="ph">Phone:</label>
-            <input type="tel" id="ph" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="1234-567-890" default=@phone />
+            <input type="number" id="ph" placeholder="0438123456" />
         </div>
         <button type="button" onclick="updateMyDetails()">Save Changes</button>
     </form>
