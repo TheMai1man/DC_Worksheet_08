@@ -6,13 +6,13 @@
     string email = (string)ViewData["Email"];
     uint phone = (uint)ViewData["Phone"];
 }
+
 <div id="dashboard">
     <h1>Admin Dashboard</h1>
 
 
-    <h3>Profile Management</h4>
+    <h3>Profile Management</h3>
     <p>Name: @name<br>Email: @email<br>Phone: @phone</p>
-
 
     <h4>Change details</h4>
     <form>
@@ -32,15 +32,11 @@
     <form>
         <div>
             <label for="NewPwd">New Password</label>
-            <input type="password" id="NewPwd" name="NewPwd" placeholder="password" />
-        </div>
-        <div>
-            <label for="RNewPwd">Confirm New Password</label>
-            <input type="password" id="RNewPwd" name="RNewPwd" placeholder="password" />
+            <input type="password" id="NewPwd" placeholder="password" />
         </div>
         <button type="button" onclick="resetMyPwd()">Submit</button>
     </form>
-    <p id="pwdError" class="errorMsg">Error: passwords do not match!</p>
+    <p id="pwdError" class="errorMsg">Error: password not valid!</p>
 
 
     <h3>User Managment</h3>
@@ -69,6 +65,7 @@
         </div>
         <button type="button" onclick="createUser()">Create</button>
     </form>
+    <p id ="createUserError" class="errorMsg">Error: invalid fields!</p>
 
     <h4>Edit Users</h4>
 
@@ -79,23 +76,49 @@
     </form>
     <p id="searchUserError" class="errorMsg">Error: could not find user!</p>
 
-    <h5>Change details</h5>
+    <h5>Change User Details</h5>
+
+    @{
+        string searchName, searchEmail, searchAddress;
+        uint searchID, searchPhone;
+
+        if (ViewData["SearchID"] != null)
+        {
+            searchName = (string)ViewData["SearchName"];
+            searchID = (uint)ViewData["SearchID"];
+            searchEmail = (string)ViewData["SearchEmail"];
+            searchPhone = (uint)ViewData["SearchPhone"];
+            searchAddress = (string)ViewData["SearchAddress"];
+        }
+        else
+        {
+            searchName = ""; searchEmail = ""; searchAddress = "";
+            searchID = 0; searchPhone = 0;
+        }
+    }
+    <script>
+        document.getElementById("editUsername").value = @searchName;
+    </script>
     <form>
         <div>
             <label for="editUsername">Username</label>
-            <input type="text" id="editUsername" placeholder="username" />
+            <input type="text" id="editUsername" placeholder="username" readonly value="@searchName" />
+        </div>
+        <div>
+            <label for="editUserID">UserID</label>
+            <input type="number" id="editUserID" placeholder="0000" readonly value="@searchID" />
         </div>
         <div>
             <label for="editEmail">Email</label>
-            <input type="text" id="editEmail" placeholder="example@domain" />
+            <input type="text" id="editEmail" placeholder="example@domain" value="@searchEmail" />
         </div>
         <div>
             <label for="editPhone">Phone</label>
-            <input type="tel" id="editPhone" placeholder="1234-567-890" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" />
+            <input type="tel" id="editPhone" placeholder="1234-567-890" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" value="@searchPhone" />
         </div>
         <div>
             <label for="editAddress">Address</label>
-            <input type="text" id="editAddress" placeholder="1 Example Street, City/Town State 0000" />
+            <input type="text" id="editAddress" placeholder="1 Example Street, City/Town State 0000" value="@searchAddress" />
         </div>
         <button type="button" onclick="editUser()">Save Changes</button>
         <button type="button" onclick="deactivateUser()">Deactivate</button>

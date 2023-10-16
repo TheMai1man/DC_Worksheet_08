@@ -107,6 +107,7 @@ namespace BankDataWebService.Controllers
             return NoContent();
         }
 
+
         // POST: api/Profiles
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -126,6 +127,7 @@ namespace BankDataWebService.Controllers
 
             return CreatedAtAction("GetProfile", new { id = profile.UserID }, profile);
         }
+
 
         // DELETE: api/Profiles/5
         [HttpDelete("{id}")]

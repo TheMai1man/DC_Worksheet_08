@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\19131517\\Source\\Repos\\TheMai1man\\DC_Worksheet_08\\Assignment-2\\WebApp\\WebApp.csproj": {}
+    "C:\\Software Projects\\DC\\08\\Assignment-2\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\19131517\\Source\\Repos\\TheMai1man\\DC_Worksheet_08\\Assignment-2\\WebApp\\WebApp.csproj": {
+    "C:\\Software Projects\\DC\\08\\Assignment-2\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\19131517\\Source\\Repos\\TheMai1man\\DC_Worksheet_08\\Assignment-2\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Software Projects\\DC\\08\\Assignment-2\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\Users\\19131517\\Source\\Repos\\TheMai1man\\DC_Worksheet_08\\Assignment-2\\WebApp\\WebApp.csproj",
-        "packagesPath": "C:\\Users\\19131517\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\19131517\\Source\\Repos\\TheMai1man\\DC_Worksheet_08\\Assignment-2\\WebApp\\obj\\",
+        "projectPath": "C:\\Software Projects\\DC\\08\\Assignment-2\\WebApp\\WebApp.csproj",
+        "packagesPath": "C:\\Users\\liama\\.nuget\\packages\\",
+        "outputPath": "C:\\Software Projects\\DC\\08\\Assignment-2\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\19131517\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\liama\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,6 +25,8 @@
           "net6.0"
         ],
         "sources": {
+          "C:\\PROGRAM FILES\\DOTNET\\library-packs": {},
+          "C:\\PROGRAM FILES\\DOTNET\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -63,7 +65,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -75,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\PROGRAM FILES\\DOTNET\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

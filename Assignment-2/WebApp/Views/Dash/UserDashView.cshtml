@@ -2,39 +2,42 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    List<Account> accounts = (List<Account>)ViewData["Accounts"];
+    List<Account> accounts = new List<Account>();
+
+    string name = (string)ViewData["Name"];
+    string email = (string)ViewData["Email"];
+    string phone = (string)ViewData["Phone"];
 }
 
 <h1>Your Dashboard</h1>
 
 
-@{
-    string name = (string)ViewData["Name"];
-    string email = (string)ViewData["Email"];
-    string phone = (string)ViewData["Phone"];
-}
-<h4>Profile Information</h4>
+<h3>Profile Management</h3>
 <p>Name: @name<br>Email: @email<br>Phone: @phone</p>
 
-<button type="button" id="" onclick="toggleEditProfile()">Edit Profile</button>
-<div id="EditProfile" style="display: none;">
-    <h5>Change details</h5>
-    <form>
+<h4>Change details</h4>
+<form>
+    <div>
         <label for="e">Email:</label>
-        <input type="email" id="e" default=@name placeholder="example@domain">
+        <input type="email" id="e" placeholder="example@domain" />
+    </div>
+    <div>
         <label for="ph">Phone:</label>
-        <input type="tel" id="ph" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="1234-567-890" default=@phone>
-        <button type="button" onclick="updateDetails()">Update</button>
-    </form>
+        <input type="number" id="ph" placeholder="0438123456" />
+    </div>
+    <button type="button" onclick="updateMyDetails()">Save Changes</button>
+</form>
+<p id="detailError" class="errorMsg">Error: email and phone fields must be valid!</p>
 
-    <h5>Change Password</h5>
-    <form>
-        <input type="password" id="NewPwd" name="NewPwd" placeholder="New Password" />
-        <input type="password" id="RNewPwd" name="RNewPwd" placeholder="Confirm New Password" />
-        <button type="button" onclick="pwdReset()">Submit</button>
-    </form>
-    <p id="pwdError"><strong>Error: passwords do not match!</strong></p>
-</div>
+<h4>Change Password</h4>
+<form>
+    <div>
+        <label for="NewPwd">New Password</label>
+        <input type="password" id="NewPwd" placeholder="password" />
+    </div>
+    <button type="button" onclick="resetMyPwd()">Submit</button>
+</form>
+<p id="pwdError" class="errorMsg">Error: password not valid!</p>
 
 
 <h4>Accounts</h4>

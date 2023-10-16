@@ -16,7 +16,6 @@ namespace WebApp.Controllers
             {
                 return PartialView("LoginAuthenticatedView");
             }
-
             return PartialView("LoginDefaultView");
         }
 
